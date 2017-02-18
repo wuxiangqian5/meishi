@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="Font-Awesome-master/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body ng-app="myApp">
+	<div id="meishi-wrap">
+		<header class="meishi-header">
+			<div class="meishi-header-left">
+				<i class="fa fa-angle-left"></i>
+			</div>
+			<div class="meishi-header-center">
+				<h2>美食</h2>
+			</div>
+			<div class="meishi-header-right"></div>
+		</header>
+		<div class="meishi-main" ng-controller="myList">
+			<section class="main-title">
+				<span ui-sref="dinner">美食</span>
+				<span ui-sref="order">排序</span>
+				<span ui-sref="shaix">筛选</span>
+			</section>
+			<section class="order-text">
+				<ul>
+					<li ng-click="btnFn()"><img src="images/b1.png" />智能排序</li>
+					<li ng-click="btnFn()"><img src="images/b2.png" />距离最近</li>
+					<li ng-click="btnFn()"><img src="images/b3.png" />销量最高</li>
+					<li ng-click="btnFn()"><img src="images/b4.png" />起送价最低</li>
+					<li ng-click="btnFn()"><img src="images/b5.png" />配送速度最快</li>
+					<li ng-click="btnFn()"><img src="images/b6.png" />评分最高</li>
+				</ul>
+			</section>
+			<section class="main-list">
+				<dl ng-repeat="item in listdata.data">
+					<dt>
+						<img ng-src="{{item.image_path}}" />
+					</dt>
+					<dd>
+						<div class="dd-left">
+							<h2 ng-bind="item.name"><span>品牌</span></h2>
+							<div>
+								<img src="images/a2.png" />
+								<b>{{item.rating}}</b>
+								<span>{{item.distance+"单"}}</span>
+							</div>
+							<p><i>￥20起送</i> / <b ng-bind="item.piecewise_agent_fee.description"></b></p>
+						</div>
+						<div class="dd-right">
+							<h3 ng-bind="item.supports.name"></h3>
+							<div class="info">
+								<i>准时达</i>
+								<span>蜂鸟专送</span>
+							</div>
+							<div class="time">
+								<p>{{item.rating_count+"米"}} / <span>46分钟</span></p>
+							</div>
+						</div>
+					</dd>
+				</dl>
+		<!-- 		<dl>
+			<dt>
+				<img src="images/a1.png" />
+			</dt>
+			<dd>
+				<div class="dd-left">
+					<h2><span>品牌</span>红烧牛肉(新世界店)</h2>
+					<div>
+						<img src="images/a2.png" />
+						<b>4.5</b>
+						<span>月售1232单</span>
+					</div>
+					<p><i>￥20起送</i> / <b>配送费5￥</b></p>
+				</div>
+				<div class="dd-right">
+					<h3>保准</h3>
+					<div class="info">
+						<i>准时达</i>
+						<span>蜂鸟专送</span>
+					</div>
+					<div class="time">
+						<p>522m / <span>46分钟</span></p>
+					</div>
+				</div>
+			</dd>
+		</dl> -->
+			</section>
+		</div>
+	</div>
+
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-ui-router.min.js"></script>
+	<script>
+		var app=angular.module("myApp",["ui.router"]);
+		app.controller("myList",function($scope,$http){
+			$http.post("json/angular.json")
+			.then(function(data){
+				$scope.listdata=data;
+				console.log(data)
+				/*$scope.data=data.data.code*/
+			})
+		})
+		/*app.config(function($stateProvider,$urlRouterProvider){
+			//$urlRouterProvider.otherwise("");
+			$stateProvider
+				.state("dinner",{
+					url:"/dinner",
+					template:""
+				})
+				.state("order",{
+					url:"/order",
+					template:"<section class="order-text">"+
+						"<ul>"+
+							'<li ng-click="btnFn()"><img src="images/b1.png" />智能排序</li>'+
+							'<li ng-click="btnFn()"><img src="images/b2.png" />距离最近</li>'+
+							'<li ng-click="btnFn()"><img src="images/b3.png" />销量最高</li>'+
+							'<li ng-click="btnFn()"><img src="images/b4.png" />起送价最低</li>'+
+							'<li ng-click="btnFn()"><img src="images/b5.png" />配送速度最快</li>'+
+							'<li ng-click="btnFn()"><img src="images/b6.png" />评分最高</li>'+
+						"</ul>"+
+					"</section>"
+				})
+				.state("shaix",{
+					url:"/shaix",
+					template:""
+				})
+		})*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+body,html{
+	width: 100%;
+	height: 100%;
+	#meishi-wrap{
+		width: 100%;
+		overflow: hidden;
+		.meishi-header{
+			width: 100%;
+			height: 36px;
+			background: #0097FF;
+			display: -webkit-box;
+			-webkit-box-align: center;
+			color: #fff;
+			position: fixed;
+			top: 0;
+			left:0;
+			.meishi-header-left{
+				-webkit-box-flex: 1;
+				padding-left: 10px;
+				font-size: 20px;
+			}
+			.meishi-header-center{
+				-webkit-box-flex: 1;
+				text-align: center;
+				font-size: 14px;
+			}
+			.meishi-header-right{
+				-webkit-box-flex: 1;
+			}
+		}
+		.meishi-main{
+			padding-top: 36px;
+			width: 100%;
+			.main-title{
+				width: 100%;
+				height: 34px;
+				display: -webkit-box;
+				-webkit-box-align: center;
+				border-bottom: 1px solid #ccc;
+				position: fixed;
+				top: 36px;
+				left:0;
+				background: #eee;
+				span{
+					-webkit-box-flex: 1;
+					display: block;
+					text-align: center;
+				}
+			}
+			.order-text{
+				width: 100%;
+				margin-top: 30px;
+				ul{
+					width: 100%;
+					li{
+						margin-left: 7px;
+						height: 42px;
+						line-height: 42px;
+						border-bottom: 1px solid #ccc;
+						img{
+							padding-right: 7px;
+						}
+					}
+				}
+			}
+			.main-list{
+				width: 100%;
+				padding-top:34px;
+				dl{
+					width: 96%;
+					margin-left: 2%;
+					margin-top: 9px;
+					border-bottom: 1px solid #ccc;
+					padding-bottom: 7px;
+					dt{
+						width: 50px;
+						margin-right: 10px;
+						float: left;
+						img{
+							display: block;
+							width: 100%;
+						}
+					}
+					dd{
+						display: -webkit-box;
+						-webkit-box-pack: justify;
+						.dd-left{
+							h2{
+								font-size: 13px;
+								overflow: hidden;
+								white-space: nowrap;
+								text-overflow:ellipsis;
+								max-width:139px;
+								span{
+									width: 20px;
+									background: #FFD930;
+									font-weight: bloder;
+									padding-right: 5px;
+									box-sizing: border-box;
+								}
+							}
+							div{
+								b{
+									color: #FFD930;
+									padding: 0 3px;
+								}
+							}
+							p{
+								overflow: hidden;
+								white-space: nowrap;
+								text-overflow:ellipsis;
+								max-width:130px;
+								i{
+									font-style: normal;
+								}
+							}
+						}
+						.dd-right{
+							h3{
+								float: right;
+							}
+							.info{
+								clear: both;
+								padding: 3px 0;
+								i{
+									color: #2395FF;
+									border: 1px solid #2395FF;
+									padding: 1px 2px;
+									font-style: normal;
+								}
+								span{
+									padding: 2px 0;
+									color: #fff;
+									background: #2395FF;
+									width: 46px;
+								}
+							}
+							.time{
+								padding-top: 3px;
+								p{
+									span{
+										color: #2395FF;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
